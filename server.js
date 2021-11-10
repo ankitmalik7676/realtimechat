@@ -11,7 +11,7 @@ io.on('connection',(socket) => {
     console.log('connected with socket id= ', socket.id)
 
     socket.on('msg_send' ,(data)  => {
-       console.log('recieved', data.msg)
+      io.emit('msg_rcvd', data )
     })
 
    
