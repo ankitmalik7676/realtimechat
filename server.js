@@ -10,13 +10,11 @@ const io = socketio(server)
 io.on('connection',(socket) => {
     console.log('connected with socket id= ', socket.id)
 
-    socket.on ('boom', () => {
-        console.log('boom recieved from ', socket.id)
+    socket.on('msg_send' ,(data)  => {
+       console.log('recieved', data.msg)
     })
 
-    setInterval(() => {
-        socket.emit('whizz')
-    }, 100);
+   
      
 })
 
