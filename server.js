@@ -9,6 +9,15 @@ const io = socketio(server)
 
 io.on('connection',(socket) => {
     console.log('connected with socket id= ', socket.id)
+
+    socket.on ('boom', () => {
+        console.log('boom recieved from ', socket.id)
+    })
+
+    setInterval(() => {
+        socket.emit('whizz')
+    }, 100);
+     
 })
 
 app.use('/', express.static(__dirname + '/public'))
